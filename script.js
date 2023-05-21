@@ -24,7 +24,7 @@ lessThanN(123);
 
 // Task 4
 function isPrime(n, m) {
-  for (let i = 2; i <= n / 2; i++) {
+  for (let i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
       m = `${n} не є простим числом`;
     } else {
@@ -35,19 +35,17 @@ function isPrime(n, m) {
   return m;
 }
 
-console.log(isPrime(6, ""));
+console.log(isPrime(17));
 
 // Task 5
-function threeToThePow(number, string) {
-  for (let i = 1; i <= number ** (1 / 3); i++) {
-    if (Math.pow(3, i) === number) {
-      string = "Можна";
-    } else {
-      string = "Не можна";
+function isPowerOfThree(number) {
+  while (number > 1) {
+    if (number % 3 !== 0) {
+      return "Не можна";
     }
+    number /= 3;
   }
-
-  return string;
+  return "Можна";
 }
 
-console.log(threeToThePow(9, ""));
+console.log(isPowerOfThree(243));
